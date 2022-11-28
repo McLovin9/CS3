@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA6_Gales</title>
+    <style>
+        body {
+            font-size: 2em;
+        }
+
+        .link1 {
+            text-decoration: none;
+        }
+
+        .link1:link {
+            color: white;
+            background-color: rgb(14, 14, 83);
+        }
+
+        .link1:visited {
+            color: white;
+            background-color: orange;
+        }
+
+        .link1:focus {
+            color: red;
+            background-color: white;
+        }
+
+        .link1:hover {
+            color: yellowgreen;
+            background-color: gold;
+        }
+
+        .link1:active {
+            color: green;
+            background-color: gray;
+        }
+
+        .link2 {
+            text-decoration: none;
+        }
+
+        .link2:link {
+            color: white;
+            background-color: rgb(42, 162, 170);
+        }
+
+        .link2:visited {
+            color: white;
+            background-color: orange;
+        }
+
+        .link2:focus {
+            color: red;
+            background-color: white;
+        }
+
+        .link2:hover {
+            color: yellowgreen;
+            background-color: gold;
+        }
+
+        .link2:active {
+            color: green;
+            background-color: gray;
+        }
+
+        div {
+            border: 2px solid black;
+            width: 200px;
+            height: 150px;
+            padding: 10px;
+        }
+
+        div:target#div1 {
+            background-color: rgb(14, 14, 83);
+            color: rgb(235, 192, 84);
+        }
+
+        div:target#div2 {
+            background-color: rgb(42, 162, 170);
+            color: rgb(235, 192, 84);
+            border: 10px dotted green;
+        }
+    </style>
+</head>
+<body>
+    <a class="link1" href="#div1">First Link</a>
+    <a class="link2" href="#div2">Second Link</a>
+    <br><br>
+    <div id="div1">Div 1 here</div>
+    <br>
+    <div id="div2">Div 2 here</div>
+</body>
+</html>
