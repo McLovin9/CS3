@@ -68,7 +68,7 @@
 				<li onclick="rock()">ROCK</li>
 				<li onclick="paper()">PAPER</li>
 				<li onclick="scissor()">SCISSOR</li>
-			<ul>
+			</ul>
 		</div>
 		
 		<!--Scoreboard and display image of rock, paper and scissor once the game starts -->
@@ -102,9 +102,6 @@ const computerScore = document.getElementById("cScore");
 const computerChoiceImg = document.getElementById("computerChoice");
 
 
-document.querySelector("li:nth-of-type(1)").addEventListener("click", rock);
-document.querySelector("li:nth-of-type(2)").addEventListener("click", paper);
-document.querySelector("li:nth-of-type(3)").addEventListener("click", scissors);
 
 // Function to generate random computer choice
 function randomComputer() {
@@ -186,7 +183,7 @@ function paper() {
   checkWinner();
 }
 
-function scissors() {
+function scissor() {
   playerChoiceImg.src = "2.png";
   player = "SCISSOR";
   randomComputer();
