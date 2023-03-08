@@ -13,15 +13,15 @@
   <script>
     function generateNumber() {
      
-      let randomNumber = Math.floor(Math.random() * 1000);
+      var randomNumber = Math.floor(Math.random() * 1000);
 
     
       document.getElementById("randomNumber").textContent = `Randomly generated number: ${randomNumber}`;
 
       
-      let ones = randomNumber % 10;
-      let tens = Math.floor((randomNumber % 100) / 10);
-      let hundreds = Math.floor(randomNumber / 100);
+      var ones = randomNumber % 10;
+      var tens = Math.floor((randomNumber % 100) / 10);
+      var hundreds = Math.floor(randomNumber / 100);
 
     
       document.getElementById("numberBreakdown").textContent = `Breakdown: ${hundreds}00, ${tens}0, ${ones}`;
