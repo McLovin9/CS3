@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Numerology</title>
+		<!-- provide the necessary meta tags -->
+        <style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            span {font-size: 0.5em; color: maroon}
+        </style>
+
+	</head>
+<body>
+	<h1> Your Fortune is in your name </h1>
+	<h2> Your Name is: <span id="thename"> </span></h2>
+    <h2> Today's fortune: <span id="fortune"> </span></h2>
+    
+    <button onclick="showFortune()"> Click here to enter your name </button>
+    <script>
+        // Function to show fortune based on user's name
+        function showFortune() {
+            // Prompt user for their full name and assign it to the variable "name"
+           const name = prompt("Enter your full name:");
+           // Update the text content of the element with id "thename" to show the entered name
+           document.getElementById("thename").textContent = name;
+           // Calculate the sum of the numerical values of each letter in the name
+           let sum = 0;
+           for(let i=0; i<name.length; i++) {
+               sum += parseInt(name[i], 36) - 9;
+           }
+           // Reduce the sum to a single digit by adding its individual digits together repeatedly
+           while(sum > 9) {
+               let temp = sum;
+               sum = 0;
+               while(temp > 0) {
+                   sum += temp % 10;
+                   temp = Math.floor(temp / 10);
+               }
+           }
+           // Assign a fortune message based on the final single-digit sum value
+           let fortune;
+           switch(sum) {
+               case 0:
+                   fortune = "A golden egg of opportunity falls into your lap this month.";
+                   break;
+               case 1:
+                   fortune = "A lifetime of happiness lies ahead of you.";
+                   break;
+               case 2:
+                   fortune = "A pleasant surprise is waiting for you.";
+                   break;
+               case 3:
+                   fortune = "A dubious friend may be an enemy in camouflage.";
+                   break;
+               case 4:
+                   fortune = "An agreeable romance might begin to take on the appearance.";
+                   break;
+               case 5:
+                   fortune = "Better ask twice than lose yourself once.";
+                   break;
+               case 6:
+                   fortune = "Dedicate yourself with a calm mind to the task at hand.";
+                   break;
+               case 7:
+                   fortune = "Your biggest virtue is your modesty.";
+                   break;
+               case 8:
+                   fortune = "Your moods signal a period of change.";
+                   break;
+               case 9:
+                   fortune = "Your loyalty is a virtue, but not when it’s wedded with blind stubbornness.";
+                   break;
+           }
+           // Update the text content of the element with id "fortune" to show the assigned fortune message
+           document.getElementById("fortune").textContent = fortune;
+       }
+   </script>
+   
+    
+</body>
+</html>

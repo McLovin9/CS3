@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cubicle</title>
+    <!-- type in the necessary meta tags -->
+    <style>
+        span {color: blue; text-decoration:underline}
+        button {width: 100px; padding: 5px; background: pink;}
+    </style>
+</head>
+<body>
+    <h1>Welcome to The Cubicle</h1>
+    <h2>Here are the latest Gan Cubes released by Gan.</h2>
+    <!--- provide your own 3 items and their prices in the list --->
+    <ol>
+        <li>GAN 11 M PRO : 1500.00</li>
+        <li>GAN 12 M MAGLEV: 2500.00</li>
+        <li>GAN 13 M MAGLEV: 3000.00</li>
+    </ol>
+    <!-- the following will be used to display purchase information -->
+    <p>Item selected: <span id="item"></span></p>
+    <p>Qty bought: <span id="qty"></span></p>
+    <p>Amount to pay for the item: <span id="bill"></span></p>
+    <p>Current Total Bill: <span id="tbill">0</span></p>
+    <button onclick="buyItem()">Buy an Item</button>
+    <button onclick="clearAll()">Clear</button>
+
+    <script>
+        // Define the three available items and their prices as objects
+        const item1 = {name: "GAN 11 M PRO", price: 1500.00};
+        const item2 = {name: "GAN 12 M MAGLEV", price: 2500.00};
+        const item3 = {name: "GAN 13 M MAGLEV", price: 3000.00};
+        
+        // Function that runs when the "Buy an Item" button is clicked
+        function buyItem() {
+            // Prompt the user to enter the item number and quantity they want to buy
+            let itemNum = prompt("Enter the item number:");
+            let qty = prompt("Enter the quantity:");
+            
+            // Check if the quantity entered is valid (a number)
+            if (qty && !isNaN(qty)) {
+                qty = parseInt(qty);
+                let item;
+                
+                // Determine which item the user selected based on the item number entered
+                switch (itemNum) {
+                    case "1":
+                        item = item1;
+                        break;
+                    case "2":
+                        item = item2;
+                        break;
+                    case "3":
+                        item = item3;
+                        break;
+                    default:
+                        alert("Invalid item number.");
+                        return;
+                }
+                
+                // Calculate the total bill for the selected item and quantity
+                let bill = item.price * qty;
+                
+                // Update the HTML to display the selected item, quantity, and bill
+                document.getElementById("item").innerHTML = item.name;
+                document.getElementById("qty").innerHTML = qty;
+                document.getElementById("bill").innerHTML = bill.toFixed(2);
+                
+                // Update the total bill displayed on the page
+                let currentBill = parseFloat(document.getElementById("tbill").innerHTML);
+                currentBill += bill;
+                document.getElementById("tbill").innerHTML = currentBill.toFixed(2);
+            } else {
+                // If an invalid quantity was entered, display an error message
+                alert("Invalid quantity.");
+            }
+        }
+        
+        // Function that runs when the "Clear" button is clicked
+        function clearAll() {
+            // Clear the item, quantity, bill, and total bill displayed on the page
+            document.getElementById("item").innerHTML = "";
+            document.getElementById("qty").innerHTML = "";
+            document.getElementById("bill").innerHTML = "";
+            document.getElementById("tbill").innerHTML = "0";
+        }
+    </script>
+    
+    
+</body>
+
+</html>
