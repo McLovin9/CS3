@@ -24,63 +24,77 @@
     
     <button onclick="showFortune()"> Click here to enter your name </button>
     <script>
-        // Function to show fortune based on user's name
-        function showFortune() {
-            // Prompt user for their full name and assign it to the variable "name"
-           const name = prompt("Enter your full name:");
-           // Update the text content of the element with id "thename" to show the entered name
-           document.getElementById("thename").textContent = name;
-           // Calculate the sum of the numerical values of each letter in the name
-           let sum = 0;
-           for(let i=0; i<name.length; i++) {
-               sum += parseInt(name[i], 36) - 9;
-           }
-           // Reduce the sum to a single digit by adding its individual digits together repeatedly
-           while(sum > 9) {
-               let temp = sum;
-               sum = 0;
-               while(temp > 0) {
-                   sum += temp % 10;
-                   temp = Math.floor(temp / 10);
-               }
-           }
-           // Assign a fortune message based on the final single-digit sum value
-           let fortune;
-           switch(sum) {
-               case 0:
-                   fortune = "A golden egg of opportunity falls into your lap this month.";
-                   break;
-               case 1:
-                   fortune = "A lifetime of happiness lies ahead of you.";
-                   break;
-               case 2:
-                   fortune = "A pleasant surprise is waiting for you.";
-                   break;
-               case 3:
-                   fortune = "A dubious friend may be an enemy in camouflage.";
-                   break;
-               case 4:
-                   fortune = "An agreeable romance might begin to take on the appearance.";
-                   break;
-               case 5:
-                   fortune = "Better ask twice than lose yourself once.";
-                   break;
-               case 6:
-                   fortune = "Dedicate yourself with a calm mind to the task at hand.";
-                   break;
-               case 7:
-                   fortune = "Your biggest virtue is your modesty.";
-                   break;
-               case 8:
-                   fortune = "Your moods signal a period of change.";
-                   break;
-               case 9:
-                   fortune = "Your loyalty is a virtue, but not when it’s wedded with blind stubbornness.";
-                   break;
-           }
-           // Update the text content of the element with id "fortune" to show the assigned fortune message
-           document.getElementById("fortune").textContent = fortune;
-       }
+
+// Function to show fortune based on user's name
+function showFortune() {
+    // Prompt the user to enter their full name and store it in a variable called "name".
+    const name = prompt("Enter your full name:");
+
+    // Set the text on the HTML element with the ID "thename" to the user's name.
+    document.getElementById("thename").textContent = name;
+
+    // Calculate the sum of the numeric values of the letters in the user's name.
+    let sum = 0;
+    for(let i=0; i<name.length; i++) {
+        if(name[i].match(/[a-zA-Z]/)) {
+            // If the character is a letter, convert it to uppercase and add its numeric value to the sum.
+            sum += name[i].toUpperCase().charCodeAt(0) - 64;
+        } else if(name[i].match(/[0-9]/)) {
+            // If the character is a number, add its value to the sum.
+            sum += parseInt(name[i]);
+        }
+    }
+
+    // Reduce the sum to a single digit.
+    while(sum > 9) {
+        let temp = sum;
+        sum = 0;
+        while(temp > 0) {
+            sum += temp % 10;
+            temp = Math.floor(temp / 10);
+        }
+    }
+
+    // Assign a fortune based on the single-digit sum.
+    let fortune;
+    switch(sum) {
+        case 0:
+            fortune = "Today will bring new opportunities.";
+            break;
+        case 1:
+            fortune = "You will receive good news today.";
+            break;
+        case 2:
+            fortune = "Be open to new experiences today.";
+            break;
+        case 3:
+            fortune = "Your creativity will be heightened today.";
+            break;
+        case 4:
+            fortune = "Today is a good day for financial investments.";
+            break;
+        case 5:
+            fortune = "Your social circle will expand today.";
+            break;
+        case 6:
+            fortune = "Today is a good day for romance.";
+            break;
+        case 7:
+            fortune = "Your hard work will pay off today.";
+            break;
+        case 8:
+            fortune = "Today is a good day for travel.";
+            break;
+        case 9:
+            fortune = "You will find inner peace today.";
+            break;
+    }
+
+    // Set the fortune text on the HTML element with the ID "fortune".
+    document.getElementById("fortune").textContent = fortune;
+}
+
+
    </script>
    
     
