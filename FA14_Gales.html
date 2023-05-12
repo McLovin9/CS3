@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title> Jimmy Loves </title> 
+			<meta charset="UTF-8"> 
+			<meta name="author" content="GalesBrook"> 
+			<meta name="keywords" content="HTML, CSS, JavaScript"> 
+			<link rel="icon" href="icon.png" type="image/gif"> 
+    <link rel="stylesheet" href="styles.css">
+	</head>
+	<body onload="textAreaFailSafe()">
+		
+	<form onsubmit="return submitData()">
+		<fieldset form="input">
+			<legend class="title"> Registration </legend> 
+			<div>
+				<label for="firstName"> Name: </label> <br/>
+				<input type="text" id="firstName" name="firstName" placeholder="First Name" onblur="inputCheck(this.value, this.id)" required> 
+				<input type="text" id="lastName" name="lastName" placeholder="Last Name" onblur="inputCheck(this.value, this.id)" required>
+			</div>
+			<br/>
+			<div>
+				<label for="uName"> Username: </label> <br/>
+				<input type="text" id="uName" name="uName" placeholder="Username" onblur="inputCheck(this.value, this.id)" required>
+			</div>
+			<br/>
+			<div>
+				<label for="gender"> Gender: </label> <br/>
+				<select id="gender" name="gender" onblur="inputCheck(this.value, this.id)">
+					<option value="none"> --Choose your gender--- </option>
+					<option value="Male"> Male </option>
+					<option value="Female"> Female </option>
+					<option value="Prefer Not To Mention"> Prefer Not to Mention </option>
+				</select>
+			</div>
+			<br/>
+			<div>
+				<label for="pWord"> Password: </label> <br/>
+				<input type="password" id="pWord" name="pWord" placeholder="Password" onblur="inputCheck(this.value, this.id)" required>
+			</div>
+			<br/>
+			<div>
+				<label for="eAddress"> Email Address: </label> <br/>
+				<input type="email" id="eAddress" name="eAddress" placeholder="example@gmail.com" onblur="inputCheck(this.value, this.id)" required>
+			</div>		
+			<br/>
+			<div>
+				<label for="address"> Address: </label> <br/>
+				<input type="text" id="address" name="address" placeholder="Address" onblur="inputCheck(this.value, this.id)" required>
+			</div>
+			<br/>
+			<div>
+				<label for="bio"> Bio: </label> <br/>
+				<textarea id="bio" name="bio" onblur="inputCheck(this.value, this.id)" required></textarea>			
+				
+			</div>
+			<br/>
+			<div>
+				<input type="reset" onclick="resetPage()">
+				<input type="submit">
+			</div>
+			</fieldset>
+			<br/>
+			<hr/>
+			
+			<div id="userInfo">
+			<fieldset id="userInfo">
+			<legend id="userInfo">Registration Details</legend> 
+
+			<div id="userInfo">
+			
+			<p> Name: <span id="firstNameA"> </span> <span id="lastNameA"> </span> </p>
+			<p> Username: <span id="uNameA"> </span> </p>
+			<p> Gender: <span id="genderA"> </span> </p>
+			<p> Password: <span id="pWordA"> </span> </p>
+			<p> Email Address: <span id="eAddressA"> </span> </p>
+			<p> Address: <span id="addressA"> </span> </p>
+			<p> Bio: <span id="bioA"> </span> </p>
+
+			</div>
+			</fieldset>
+			<div>
+	</form>	
+		
+	<script>
+	
+	let resetPage = function() {
+    document.getElementById("firstName").style.borderColor = "";
+    document.getElementById("lastName").style.borderColor = "";
+    document.getElementById("uName").style.borderColor = "";
+    document.getElementById("pWord").style.borderColor = "";
+    document.getElementById("eAddress").style.borderColor = "";
+    document.getElementById("bio").style.borderColor = "";
+    document.getElementById("address").style.borderColor = "";
+    document.getElementById("gender").style.borderColor = "";
+    document.getElementById("firstNameA").innerHTML = "";
+    document.getElementById("lastNameA").innerHTML = "";
+    document.getElementById("uNameA").innerHTML = "";
+    document.getElementById("genderA").innerHTML = "";
+    document.getElementById("pWordA").innerHTML = "";
+    document.getElementById("eAddressA").innerHTML = "";
+    document.getElementById("bioA").innerHTML = "";
+    document.getElementById("addressA").innerHTML = "";
+}
+
+function textAreaFailSafe() {
+    document.getElementById("bio").innerHTML = "";
+}
+
+function submitData() {
+    let x = document.getElementById("gender").value;
+
+    if (x == "none") {
+        alert("Enter an Option for your Gender; If you Prefer not to Say, Choose the Fourth Option");
+        return false;
+    } else {
+        let a = document.getElementById("firstName").value;
+        document.getElementById("firstNameA").innerHTML = a;
+
+        let b = document.getElementById("lastName").value;
+        document.getElementById("lastNameA").innerHTML = b;
+
+        let c = document.getElementById("uName").value;
+        document.getElementById("uNameA").innerHTML = c;
+
+        let d = document.getElementById("gender").value;
+        document.getElementById("genderA").innerHTML = d;
+
+        let e = document.getElementById("pWord").value;
+        document.getElementById("pWordA").innerHTML = e;
+
+        let f = document.getElementById("eAddress").value;
+        document.getElementById("eAddressA").innerHTML = f;
+
+        let g = document.getElementById("bio").value;
+        document.getElementById("bioA").innerHTML = g;
+
+        let h = document.getElementById("address").value;
+        document.getElementById("addressA").innerHTML = h;
+        return false;
+    }
+}
+
+function inputCheck(inputString, id) {
+    if (inputString.trim() == "") {
+        document.getElementById(id).style.borderColor = "red";
+    } else if (id == "gender") {
+        if (inputString == "none") {
+            document.getElementById(id).style.borderColor = "red";
+        } else {
+            document.getElementById(id).style.borderColor = "lime";
+        }
+    } else {
+        document.getElementById(id).style.borderColor = "lime";
+    }
+}
+
+	
+	
+
+	</script>
+	</body>
+</html>
