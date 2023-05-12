@@ -1,12 +1,155 @@
 <!DOCTYPE html>
 <html>
 	<head> 
-		<title> Jimmy Loves </title> 
+		<title>
+			Jimmy Loves 
+		</title> 
 			<meta charset="UTF-8"> 
 			<meta name="author" content="GalesBrook"> 
 			<meta name="keywords" content="HTML, CSS, JavaScript"> 
 			<link rel="icon" href="icon.png" type="image/gif"> 
-    <link rel="stylesheet" href="styles.css">
+    			<link rel="stylesheet" href="styles.css">
+		<style>
+			
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
+
+body {
+  background-color: #f2f2f2;
+  font-family:'Kanit', sans-serif;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  margin-top: 50px;
+  margin: auto;
+  padding: 0;
+}
+
+form {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(39, 38, 38, 0.3);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover {
+  border: 1px solid black;
+  background-color: #d1d1d1;
+  transition: 0.2s;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  background-color: #ffffff;
+  transition: 0.2s;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: #4070F4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #2a4899e8;
+  transition: 0.2s;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+span {
+  font-style: underline;
+}
+
+input {
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+textarea {
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+select {
+  border: 2px solid gray;
+  border-radius: 5px;
+} 
+form h2 {
+  font-size: 32px;
+  margin-top: 0;
+  text-align: center;
+  color: #4070F4;
+}
+
+form p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+form {
+  border: 2px solid gray;
+  margin: 30px auto;
+  background-color: white;
+  width: 60%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
+}
+		</style>
 	</head>
 	<body onload="textAreaFailSafe()">
 		
